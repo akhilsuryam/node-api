@@ -14,5 +14,16 @@
   "dependencies": {
     "body-parser": "^1.18.2",
     "express": "^4.16.3"
+  const dataPath = './Details/useraccount.json' // path to our JSON file
+
+// util functions
+const saveAccountData = (data) => {
+    const stringifyData = JSON.stringify(data)
+    fs.writeFileSync(dataPath, stringifyData)
+}
+const getAccountData = () => {
+    const jsonData = fs.readFileSync(dataPath)
+    return JSON.parse(jsonData)   
+}
   }
 }
